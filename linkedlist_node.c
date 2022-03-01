@@ -216,6 +216,29 @@ void Delete_khoak(List *l){
             }
             }
 }
+void sapxeptangdan(List *l)
+{
+    Node *p,*q;
+    for(p=l->pHead;p!=NULL;p=p->pNext){
+        for(q=p->pNext;q!=NULL;q=q->pNext){
+            if(p->Data>q->Data){
+                int temp=p->Data;
+                p->Data=q->Data;
+                q->Data=temp;
+            }
+        }
+    }
+}
+int timMax(List *l){
+    Node *p;
+    int max=l->pHead->Data;
+    for(p=l->pHead;p!=NULL;p=p->pNext){
+        if(p->Data>max){
+            max=p->Data;
+        }
+    }
+    return max;
+}
 void indanhsach(List l)
 {
     Node *k;
@@ -244,13 +267,15 @@ int main(){
         printf("\n\t\t6: xoa node cuoi danh sach ");
         printf("\n\t\t7: xoa node phia sau node q ");
         printf("\n\t\t8: xoa node chi dinh ");
-        printf("\n\t\t9: thoat chuong trinh ");
+        printf("\n\t\t9: sap xep ");
+        printf("\n\t\t10: tim gia tri lon nhat ");
+        printf("\n\t\t11: thoat chuong trinh ");
         do
-        {printf("\n\n\t\tnhap lua chon (1-9) : ");
+        {printf("\n\n\t\tnhap lua chon (1-11) : ");
         scanf("%d",&luachon);
-        if(luachon<1||luachon>9){
+        if(luachon<1||luachon>11){
             printf("nhap lai !");}
-        }while(luachon<1||luachon>9);
+        }while(luachon<1||luachon>11);
 
         if(luachon==1){
             int n,i;
@@ -299,6 +324,17 @@ int main(){
         else if (luachon==8)
         {
             Delete_khoak(&l);
+            indanhsach(l);
+        }
+        else if (luachon==9)
+        {
+            sapxeptangdan(&l);
+            indanhsach(l);
+        }
+        else if (luachon==10)
+        {
+            int max=timMax(&l);
+            printf("\ngia tri lon nhat la %d",max);
             indanhsach(l);
         }
         else{
