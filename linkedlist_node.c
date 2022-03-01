@@ -267,7 +267,7 @@ int main(){
         printf("\n\t\t6: xoa node cuoi danh sach ");
         printf("\n\t\t7: xoa node phia sau node q ");
         printf("\n\t\t8: xoa node chi dinh ");
-        printf("\n\t\t9: sap xep ");
+        printf("\n\t\t9: sap xep tang dan: ");
         printf("\n\t\t10: tim gia tri lon nhat ");
         printf("\n\t\t11: thoat chuong trinh ");
         do
